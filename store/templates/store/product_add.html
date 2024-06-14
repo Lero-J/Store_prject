@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="Название продукта" name="product_name">
+    <input type="number" placeholder="Цена" name="product_price">
+    <select name="NEW_product_name">
+        {% for category in categories %}
+            <option>{{ category.name }}</option>
+        {% endfor %}
+    </select>
+    <button>ДОБАВИТЬ</button>
+    <h1><a style="color:black;" href="{% url 'index' %}">Вернуться на главную</a></h1>
+</form>
+</body>
+</html>

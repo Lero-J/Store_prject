@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="stores">
+        <h2>Магазины</h2><br>
+      <p> <button class="adding_cat"><a href="{% url 'add_store' %}">Добавить новый магазин</a></button></p>
+        <br>
+        {% for store in stores %}
+        	<p><a href="{% url 'store_detail' store_id=store.id %}" >{{ store.name }}</a>
+                <button><a href="{% url 'delete_store' store_id=store.id %}">Удалить</a> </button>
+                  <button><a href="{% url 'edit_store' store_id=store.id %}">Редактировать</a> </button>
+            </p>
+            <br>
+        {% endfor %}
+
+    </div>
+
+    <div class="right_part">
+        <div class="categories">
+           <h2>Категории</h2><br>
+          <p> <button class="adding_cat"><a href="{% url 'add_category' %}">Добавить новую категорию</a></button></p>
+            <br>
+            {% for category in categories %}
+            <p>
+                <a href="" >{{ category.name }}</a>
+                <button> <a href="{% url 'delete_category' category_id=category.id %}">Удалить</a> </button>
+                <button>  <a href="{% url 'edit_category' category_id=category.id %}">Редактировать  </a> </button>
+            </p>
+                <br>
+            {% endfor %}
+        </div>
+        <div class="products">
+           <h2>Продукты</h2><br>
+          <p> <button class="adding_cat"><a href="{% url 'add_product' %}">Добавить новый продукт</a></button></p>
+            <br>
+            {% for product in products %}
+            	<p>
+                    <a href="" >{{ product.name }}</a>
+                <button><a href="{% url 'delete_product' product_id=product.id %}">Удалить</a></button>
+                  <button><a href="{% url 'edit_product' product_id=product.id %}">Редактировать</a></button>
+
+                </p><br>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <h2>Новое название</h2>
+    <input style="height: 40px" type="text" placeholder="Новое название" name="new_cat_name">
+    <button style="height: 45px; width: 100px">SAVE</button>
+</form>
+ <h1><a style="color:black;" href="{% url 'index' %}">Вернуться на главную</a></h1>
+
+</body>
+</html>
